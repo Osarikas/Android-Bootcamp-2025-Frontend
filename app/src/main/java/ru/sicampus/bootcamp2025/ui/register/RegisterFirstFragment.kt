@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.databinding.FragmentRegisterFirstBinding
 import ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListViewModel
@@ -32,6 +33,9 @@ class RegisterFirstFragment : Fragment(R.layout.fragment_register_first) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
+        }
+        binding.backArrow.setOnClickListener{
+            findNavController().popBackStack()
         }
 
         binding.fullname.addTextChangedListener(textWatcher)

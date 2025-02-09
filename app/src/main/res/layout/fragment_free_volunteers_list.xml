@@ -5,7 +5,9 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".ui.vlist.FreeVolunteersListFragment">
+
     <ProgressBar
         android:id="@+id/loading"
         style="?android:attr/progressBarStyle"
@@ -113,7 +115,8 @@
                 android:background="@drawable/btn_free_shape_on"
                 android:clickable="false"
                 android:fontFamily="@font/montserrat_extrabold"
-                android:text="@string/free_btn" />
+                android:text="@string/free_btn"
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/activeVolunteers"
@@ -124,7 +127,8 @@
                 android:background="@drawable/btn_active_shape"
                 android:clickable="true"
                 android:fontFamily="@font/montserrat_extrabold"
-                android:text="@string/active_btn" />
+                android:text="@string/active_btn"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <android.widget.SearchView

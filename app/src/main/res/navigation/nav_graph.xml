@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="ru.sicampus.bootcamp2025.LoginFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainPageFragment"
-        android:name="ru.sicampus.bootcamp2025.MainPageFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.MainPageFragment"
         android:label="fragment_main_page"
         tools:layout="@layout/fragment_main_page">
         <action
@@ -38,15 +38,25 @@
         android:id="@+id/profileFragment"
         android:name="ru.sicampus.bootcamp2025.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_freeVolunteersListFragment"
+            app:destination="@id/freeVolunteersListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/freeVolunteersListFragment"
         android:name="ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListFragment"
         android:label="fragment_free_volunteers_list"
         tools:layout="@layout/fragment_free_volunteers_list">
         <action
-            android:id="@+id/action_freeVolunteersListFragment_to_activeVolunteersListFragment"
-            app:destination="@id/activeVolunteersListFragment" />
+            android:id="@+id/action_freeVolunteersListFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+        <action
+            android:id="@+id/action_freeVolunteersListFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/activeVolunteersListFragment"

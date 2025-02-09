@@ -28,7 +28,7 @@ class FreeVolunteerNetworkDataSource {
     @OptIn(ExperimentalEncodingApi::class)
     suspend fun getFreeVolunteers():Result<List<UserDTO>> = withContext(Dispatchers.IO){
         runCatching {
-            val result = client.get("http://10.0.2.2:8080/api/volunteers/free"){
+            val result = client.get("http://45.134.12.60:8080/api/volunteers/free"){
                 headers{
                     append("Authorization", "Basic ${ Base64.encode("i@indexzero.su:HelloWorld1234".encodeToByteArray())}") // Тут будет строчка с данными пользователя
                 }

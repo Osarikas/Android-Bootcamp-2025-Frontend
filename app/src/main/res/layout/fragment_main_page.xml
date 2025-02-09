@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPageFragment">
+    android:background="@color/bg"
+    tools:context=".ui.MainPageFragment">
 
     <LinearLayout
         android:id="@+id/header"
@@ -104,5 +105,14 @@
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/profile" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:listitem="@layout/item_organization" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,9 @@ class StarterFragment : Fragment(R.layout.fragment_starter) {
         binding.registerBtn.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_starterFragment_to_registerFirstFragment)
         }
+        binding.loginBtn.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_starterFragment_to_loginFragment)
+        }
     }
 
     override fun onDestroyView() {

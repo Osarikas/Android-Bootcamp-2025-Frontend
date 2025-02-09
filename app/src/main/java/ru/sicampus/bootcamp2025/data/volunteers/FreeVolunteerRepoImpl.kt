@@ -12,11 +12,11 @@ class FreeVolunteerRepoImpl(
             listDto.mapNotNull { dto ->
                 UserEntity(
                     name = dto.name,
-                    photoUrl = dto.photoUrl ?: return@mapNotNull null,
+                    photoUrl = dto.photoUrl,
                     id = dto.id ,
                     email = dto.email,
                     role = dto.role,
-                    birthDate = dto.birthDate ?: return@mapNotNull null,
+                    birthDate = dto.birthDate,
                     phoneNumber = dto.phoneNumber ?: return@mapNotNull null,
                     telegramUsername = dto.telegramUsername ?: return@mapNotNull null,
                     organizationName = dto.organizationName,

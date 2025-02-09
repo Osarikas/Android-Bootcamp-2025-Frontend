@@ -5,7 +5,9 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    android:background="@color/bg"
+    tools:context=".ui.login.LoginFragment">
+
     <ImageView
         android:id="@+id/back_arrow"
         android:layout_width="wrap_content"
@@ -75,7 +77,6 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -86,7 +87,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:autofillHints=""
@@ -94,14 +95,14 @@
             android:ems="10"
             android:fontFamily="@font/montserrat_medium"
             android:hint="@string/hint_email"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -112,7 +113,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="240dp"
@@ -121,19 +122,22 @@
             android:ems="10"
             android:fontFamily="@font/montserrat_medium"
             android:hint="@string/hint_password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:background="@drawable/input_rounded_corners"
             android:backgroundTint="@color/violet"
             android:fontFamily="@font/montserrat_extrabold"
             android:text="@string/login_btn"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:cornerRadius="15dp" />
     </LinearLayout>

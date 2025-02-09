@@ -1,11 +1,13 @@
-package ru.sicampus.bootcamp2025.data.profile
+package ru.sicampus.bootcamp2025.data.login
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.basicAuth
 import io.ktor.client.request.get
 import io.ktor.client.request.headers
+import io.ktor.client.request.post
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +17,7 @@ import ru.sicampus.bootcamp2025.data.UserDTO
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
-class ProfileNetworkDataSource {
+class LoginNetworkDataSource {
     private val client = HttpClient(CIO){
         install(ContentNegotiation){
             json(Json {
@@ -25,11 +27,11 @@ class ProfileNetworkDataSource {
         }
     }
     @OptIn(ExperimentalEncodingApi::class)
-    suspend fun getProfile():Result<UserDTO> = withContext(Dispatchers.IO){
+    suspend fun login(email: String, password: String):Result<Unit> = withContext(Dispatchers.IO){
         runCatching {
-            val result = client.get("http://45.134.12.60:8080/api/volunteers/profile"){
+            val result = client.post("http://45.134.12.60:8080/api/volunteers/login"){
                 headers{
-                    append("Authorization", "Basic ${ Base64.encode("i@indexzero.su:HelloWorld1234".encodeToByteArray())}") // Тут будет строчка с данными пользователя
+                    basicAuth(email, password)
                 }
             }
 

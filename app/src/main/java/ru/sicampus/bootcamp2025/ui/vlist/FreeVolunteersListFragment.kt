@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.databinding.FragmentFreeVolunteersListBinding
 import ru.sicampus.bootcamp2025.util.collectWithLifecycle
@@ -19,6 +20,8 @@ class FreeVolunteersListFragment : Fragment(R.layout.fragment_free_volunteers_li
         val adapter = VolunteerAdapter()
         binding.content.adapter = adapter
 
+        binding.menuHome.setOnClickListener{ findNavController().navigate(R.id.action_freeVolunteersListFragment_to_mainPageFragment) }
+        binding.menuProfile.setOnClickListener{ findNavController().navigate(R.id.action_freeVolunteersListFragment_to_profileFragment) }
         viewModel.state.collectWithLifecycle(this){ state ->
             binding.error.visibility = if(state is FreeVolunteersListViewModel.State.Error) View.VISIBLE else View.GONE
             binding.loading.visibility = if(state is FreeVolunteersListViewModel.State.Loading) View.VISIBLE else View.GONE

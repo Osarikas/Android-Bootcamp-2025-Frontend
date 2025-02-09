@@ -37,14 +37,14 @@ class RegisterNetworkDataSource {
         println("Sending JSON: $jsonString")
         runCatching {
             println("Making network request to register: $registerDTO")
-            val result = client.post("http://10.0.2.2:8080/api/volunteers/register") {
+            val result = client.post("http://45.134.12.60:8080/api/volunteers/register") {
                 headers {
                     contentType(ContentType.Application.Json)
                 }
                 setBody(jsonString) // Сериализация данных
             }
 
-            if (result.status != HttpStatusCode.OK) {
+            if (result.status != HttpStatusCode.Created) {
                 println("Error response: ${result.status}")
                 error("Status ${result.status}")
             }

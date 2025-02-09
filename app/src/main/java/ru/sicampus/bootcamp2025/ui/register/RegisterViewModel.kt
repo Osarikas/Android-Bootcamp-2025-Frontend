@@ -1,5 +1,10 @@
 package ru.sicampus.bootcamp2025.ui.register
 
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -9,6 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import ru.sicampus.bootcamp2025.data.UserDTO
+import ru.sicampus.bootcamp2025.data.UserDataStoreManager
 import ru.sicampus.bootcamp2025.data.profile.ProfileRepoImpl
 import ru.sicampus.bootcamp2025.data.register.RegisterNetworkDataSource
 import ru.sicampus.bootcamp2025.data.register.RegisterRepoImpl
@@ -21,13 +27,16 @@ import ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListViewModel
 import kotlin.reflect.KClass
 
 @Suppress("UNCHECKED_CAST")
-class RegisterViewModel(private val registerUseCase: RegisterUseCase) : ViewModel() {
+class RegisterViewModel(private val registerUseCase: RegisterUseCase, application: Application) : AndroidViewModel(application) {
 
     private val _state = MutableStateFlow<State>(getStateShow())
     val state = _state.asStateFlow()
     private val _userData = MutableStateFlow(UserRegisterEntity())
     val userData = _userData.asStateFlow()
     private var _password: String? = null
+    private val _user = MutableLiveData<UserDTO?>()
+    val user: LiveData<UserDTO?> get() = _user
+    private val userDataStoreManager = UserDataStoreManager(application)
 
 
 
@@ -86,15 +95,17 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase) : ViewMode
     }
     fun registerUser() {
         viewModelScope.launch {
-            try {
-                val userDTO = _userData.value
-                val result = registerUseCase(userDTO)
-                _state.emit(State.Show(errorText = "Registration Success"))
-
-            } catch (e: Exception) {
-                _state.emit(State.Show(errorText = "Error: ${e.message}"))
-                println("Error during registration: ${e.message}")
-            }
+            registerUseCase.invoke(_userData.value).fold(
+                onSuccess = { userDto ->
+                    _user.value = userDto
+                    userDataStoreManager.saveCredentials(_userData.value.email.toString(), _userData.value.password.toString())
+                    _state.emit(State.Show("Success"))
+                },
+                onFailure = { error ->
+                    Log.e("Register", "Ошибка регистрации: ${error.message}")
+                    _state.emit(State.Show(error.toString()))
+                }
+            )
         }
     }
     companion object {
@@ -106,7 +117,7 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase) : ViewMode
 
                 val registerUseCase = RegisterUseCase(registerRepoImpl)
 
-                return RegisterViewModel(registerUseCase) as T
+                return RegisterViewModel(registerUseCase, extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as Application) as T
             }
         }
     }

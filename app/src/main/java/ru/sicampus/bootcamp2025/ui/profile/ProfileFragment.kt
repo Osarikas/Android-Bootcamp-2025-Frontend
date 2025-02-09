@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.data.UserDTO
@@ -23,6 +24,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentProfileBinding.bind(view)
         binding.refreshBtn.setOnClickListener{ viewModel.clickRefresh() }
+        binding.menuHome.setOnClickListener{ findNavController().navigate(R.id.action_profileFragment_to_mainPageFragment) }
+        binding.menuVolunteers.setOnClickListener{ findNavController().navigate(R.id.action_profileFragment_to_freeVolunteersListFragment) }
         viewModel.state.collectWithLifecycle(this){ state ->
             binding.error.visibility = if(state is ProfileViewModel.State.Error) View.VISIBLE else View.GONE
             binding.loading.visibility = if(state is ProfileViewModel.State.Loading) View.VISIBLE else View.GONE
@@ -40,6 +43,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         }
     }
+
     private fun showProfile(user: UserDTO) {
         binding.loading.visibility = View.GONE
         with(binding) {
