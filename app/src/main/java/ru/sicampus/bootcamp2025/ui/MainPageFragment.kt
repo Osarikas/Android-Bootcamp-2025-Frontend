@@ -14,12 +14,12 @@ class MainPageFragment : Fragment(R.layout.fragment_main_page) {
         _binding = FragmentMainPageBinding.bind(view)
 
         // Навигационные кнопки
-//        binding.menuProfile.setOnClickListener {
-//            findNavController().navigate(R.id.action_mainPageFragment_to_profileFragment)
-//        }
-//        binding.menuVolunteers.setOnClickListener {
-//            findNavController().navigate(R.id.action_mainPageFragment_to_freeVolunteersListFragment)
-//        }
+        binding.menuProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_mainPageFragment_to_profileFragment)
+        }
+        binding.menuVolunteers.setOnClickListener {
+            findNavController().navigate(R.id.action_mainPageFragment_to_freeVolunteersListFragment)
+        }
 //
 //        // Адаптер
 //        val adapter = OrganizationAdapter()

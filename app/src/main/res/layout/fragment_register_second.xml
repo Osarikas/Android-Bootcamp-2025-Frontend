@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".ui.register.RegisterSecondFragment">
 
     <ImageButton
@@ -115,6 +116,7 @@
             android:inputType="text"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="16sp" />
 
@@ -140,6 +142,7 @@
             android:inputType="text"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="15sp" />
 
@@ -167,6 +170,7 @@
             android:paddingStart="15dp"
             android:paddingTop="10dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="16sp" />
 

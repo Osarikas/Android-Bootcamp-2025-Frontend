@@ -5,6 +5,7 @@
     android:id="@+id/registerFirstFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".ui.register.RegisterFirstFragment">
 
 
@@ -119,6 +120,7 @@
             android:inputType="text"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="16sp" />
 
@@ -144,6 +146,7 @@
             android:inputType="textEmailAddress"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="16sp" />
 
@@ -169,6 +172,7 @@
             android:inputType="textPassword"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:textColor="@color/gray"
             android:textColorHint="@color/gray"
             android:textSize="16sp" />
 
@@ -178,7 +182,7 @@
         android:id="@+id/errorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/register_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -186,5 +190,5 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:layout_constraintVertical_bias="0.175"
         tools:text="Error"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

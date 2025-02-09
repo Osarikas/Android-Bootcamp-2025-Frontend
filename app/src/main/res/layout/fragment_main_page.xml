@@ -41,7 +41,8 @@
                 android:background="@drawable/btn_free_shape"
                 android:clickable="false"
                 android:fontFamily="@font/montserrat_extrabold"
-                android:text="@string/map_btn" />
+                android:text="@string/map_btn"
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/activeVolunteers"
@@ -52,7 +53,8 @@
                 android:background="@drawable/btn_active_shape_on"
                 android:clickable="true"
                 android:fontFamily="@font/montserrat_extrabold"
-                android:text="@string/list_btn" />
+                android:text="@string/list_btn"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <android.widget.SearchView

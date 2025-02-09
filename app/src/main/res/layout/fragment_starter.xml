@@ -38,6 +38,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/montserrat_extrabold"
             android:text="@string/starter_1"
+            android:textColor="@color/gray"
             android:textSize="24sp" />
 
         <TextView
@@ -46,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:text="@string/starter_3"
+            android:textColor="@color/gray"
             android:textSize="18sp" />
 
         <Button
