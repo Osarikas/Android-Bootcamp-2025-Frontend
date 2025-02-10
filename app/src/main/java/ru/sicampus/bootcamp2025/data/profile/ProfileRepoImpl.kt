@@ -1,6 +1,6 @@
 package ru.sicampus.bootcamp2025.data.profile
 
-import ru.sicampus.bootcamp2025.data.UserDTO
+import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import ru.sicampus.bootcamp2025.domain.profile.ProfileRepo
 
 
@@ -13,7 +13,7 @@ class ProfileRepoImpl(
             UserDTO(
                 name = dto.name,
                 photoUrl = dto.photoUrl,
-                id = dto.id ,
+                id = dto.id,
                 email = dto.email,
                 role = dto.role,
                 birthDate = dto.birthDate,

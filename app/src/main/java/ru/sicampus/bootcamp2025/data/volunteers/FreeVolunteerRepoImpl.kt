@@ -1,7 +1,6 @@
 package ru.sicampus.bootcamp2025.data.volunteers
-
-import ru.sicampus.bootcamp2025.domain.volunteers.FreeVolunteerRepo
-import ru.sicampus.bootcamp2025.domain.UserEntity
+import ru.sicampus.bootcamp2025.domain.volunteers.free.FreeVolunteerRepo
+import ru.sicampus.bootcamp2025.domain.entities.UserEntity
 
 class FreeVolunteerRepoImpl(
     private val freeVolunteerNetworkDataSource: FreeVolunteerNetworkDataSource
@@ -13,7 +12,7 @@ class FreeVolunteerRepoImpl(
                 UserEntity(
                     name = dto.name,
                     photoUrl = dto.photoUrl,
-                    id = dto.id ,
+                    id = dto.id,
                     email = dto.email,
                     role = dto.role,
                     birthDate = dto.birthDate,

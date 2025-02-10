@@ -3,19 +3,13 @@ package ru.sicampus.bootcamp2025.ui.profile
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import ru.sicampus.bootcamp2025.data.UserDTO
+import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import ru.sicampus.bootcamp2025.data.profile.ProfileNetworkDataSource
 import ru.sicampus.bootcamp2025.data.profile.ProfileRepoImpl
-import ru.sicampus.bootcamp2025.data.volunteers.FreeVolunteerNetworkDataSource
-import ru.sicampus.bootcamp2025.data.volunteers.FreeVolunteerRepoImpl
-import ru.sicampus.bootcamp2025.domain.UserEntity
 import ru.sicampus.bootcamp2025.domain.profile.GetProfileUseCase
-import ru.sicampus.bootcamp2025.domain.volunteers.GetFreeVolunteersUseCase
-import ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListViewModel
 
 class ProfileViewModel (
     private val getProfileUseCase: GetProfileUseCase

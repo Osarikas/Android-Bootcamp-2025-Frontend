@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainPageFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.MainPageFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.ogranizations.list.OrganizationListFragment"
         android:label="fragment_main_page"
         tools:layout="@layout/fragment_main_page">
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/freeVolunteersListFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.volunteers.free.FreeVolunteersListFragment"
         android:label="fragment_free_volunteers_list"
         tools:layout="@layout/fragment_free_volunteers_list">
         <action
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/activeVolunteersListFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.vlist.ActiveVolunteersListFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.volunteers.ActiveVolunteersListFragment"
         android:label="fragment_active_volunteers_list"
         tools:layout="@layout/fragment_active_volunteers_list" />
     <fragment

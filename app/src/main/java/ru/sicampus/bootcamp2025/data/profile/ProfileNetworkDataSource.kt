@@ -11,7 +11,8 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
-import ru.sicampus.bootcamp2025.data.UserDTO
+import ru.sicampus.bootcamp2025.data.ApiConfig
+import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
@@ -27,7 +28,7 @@ class ProfileNetworkDataSource {
     @OptIn(ExperimentalEncodingApi::class)
     suspend fun getProfile():Result<UserDTO> = withContext(Dispatchers.IO){
         runCatching {
-            val result = client.get("http://45.134.12.60:8080/api/volunteers/profile"){
+            val result = client.get("${ApiConfig.BASE_URL}/volunteers/profile"){
                 headers{
                     append("Authorization", "Basic ${ Base64.encode("i@indexzero.su:HelloWorld1234".encodeToByteArray())}") // Тут будет строчка с данными пользователя
                 }

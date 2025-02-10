@@ -34,7 +34,7 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/fullName"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -69,11 +69,11 @@
         android:fontFamily="@font/montserrat_medium"
         android:textColor="@color/gray"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/status"
+        app:layout_constraintBottom_toTopOf="@+id/count"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/view1"
-        app:layout_constraintTop_toBottomOf="@+id/fullName"
+        app:layout_constraintTop_toBottomOf="@+id/name"
         tools:text="example@test.ru" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

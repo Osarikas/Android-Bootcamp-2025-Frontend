@@ -1,4 +1,4 @@
-package ru.sicampus.bootcamp2025.domain.volunteers
+package ru.sicampus.bootcamp2025.domain.volunteers.free
 
 class GetFreeVolunteersUseCase (
     private val repo: FreeVolunteerRepo

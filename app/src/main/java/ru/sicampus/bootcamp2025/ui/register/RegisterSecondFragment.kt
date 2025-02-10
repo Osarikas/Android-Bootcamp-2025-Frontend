@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.databinding.FragmentRegisterSecondBinding
-import ru.sicampus.bootcamp2025.util.collectWithLifecycle
 
 class RegisterSecondFragment : Fragment(R.layout.fragment_register_second) {
 

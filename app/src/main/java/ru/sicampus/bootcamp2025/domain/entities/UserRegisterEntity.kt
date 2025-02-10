@@ -1,6 +1,4 @@
-package ru.sicampus.bootcamp2025.domain.register
-
-import java.util.Date
+package ru.sicampus.bootcamp2025.domain.entities
 
 data class UserRegisterEntity (
     val email: String? = null,

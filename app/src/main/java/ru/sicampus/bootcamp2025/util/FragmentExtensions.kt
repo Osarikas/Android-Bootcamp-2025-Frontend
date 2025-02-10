@@ -10,13 +10,11 @@ import kotlinx.coroutines.launch
 
 fun <T> Flow<T>.collectWithLifecycle(
     fragment: Fragment,
-    function: (T) -> Unit
+    function: suspend (T) -> Unit
 ){
-    fragment.lifecycleScope.launch {
+    fragment.viewLifecycleOwner.lifecycleScope.launch {
         fragment.repeatOnLifecycle(Lifecycle.State.STARTED) {
-           collect { function.invoke(it)
-
-            }
+           collect { function.invoke(it) }
         }
     }
 }

@@ -1,4 +1,4 @@
-package ru.sicampus.bootcamp2025.ui.vlist
+package ru.sicampus.bootcamp2025.ui.volunteers.free
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ru.sicampus.bootcamp2025.databinding.ItemUserBinding
-import ru.sicampus.bootcamp2025.domain.UserEntity
+import ru.sicampus.bootcamp2025.domain.entities.UserEntity
 
-class VolunteerAdapter : ListAdapter<UserEntity, VolunteerAdapter.ViewHolder>(UserDiff) {
+class FreeVolunteersAdapter : ListAdapter<UserEntity, FreeVolunteersAdapter.ViewHolder>(UserDiff) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,11 +31,9 @@ class VolunteerAdapter : ListAdapter<UserEntity, VolunteerAdapter.ViewHolder>(Us
     ) : RecyclerView.ViewHolder(binding.root){
         @SuppressLint("SetTextI18n")
         fun bind(item: UserEntity){
-            binding.fullName.text = "${item.name}"
+            binding.name.text = "${item.name}"
             binding.email.text = "${item.email}"
-            Picasso.get()
-                .load(item.photoUrl)
-                .into(binding.userImg)
+            Picasso.get().load(item.photoUrl).into(binding.userImg)
         }
     }
 

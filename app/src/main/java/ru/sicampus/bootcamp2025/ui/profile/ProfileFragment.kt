@@ -7,10 +7,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
 import ru.sicampus.bootcamp2025.R
-import ru.sicampus.bootcamp2025.data.UserDTO
+import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import ru.sicampus.bootcamp2025.databinding.FragmentProfileBinding
-import ru.sicampus.bootcamp2025.domain.UserEntity
-import ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListViewModel
 import ru.sicampus.bootcamp2025.util.collectWithLifecycle
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -47,14 +45,14 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun showProfile(user: UserDTO) {
         binding.loading.visibility = View.GONE
         with(binding) {
-            fullNameText.text = "${user.name}"
-            organizationName.text = "${user.organizationName}"
-            roleText.text = "${user.role}"
+            fullNameText.text = user.name
+            organizationName.text = user.organizationName
+            roleText.text = user.role
             birthDateText.text = dateConverter(user.birthDate)
-            phoneText.text = "${user.phoneNumber}"
-            emailText.text = "${user.email}"
-            telegramText.text = "${user.telegramUsername}"
-            aboutText.text = "${user.about}"
+            phoneText.text = user.phoneNumber
+            emailText.text = user.email
+            telegramText.text = user.telegramUsername
+            aboutText.text = user.about
             Picasso.get().load(user.photoUrl).into(photo)
 
         }

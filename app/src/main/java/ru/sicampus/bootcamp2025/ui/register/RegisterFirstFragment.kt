@@ -6,12 +6,10 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.databinding.FragmentRegisterFirstBinding
-import ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListViewModel
 import ru.sicampus.bootcamp2025.util.collectWithLifecycle
 import kotlin.getValue
 

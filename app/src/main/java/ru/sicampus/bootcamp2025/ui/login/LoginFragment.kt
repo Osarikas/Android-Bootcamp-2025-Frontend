@@ -3,12 +3,9 @@ package ru.sicampus.bootcamp2025.ui.login
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -57,16 +54,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
         binding.password.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
+                binding.loginBtn.isEnabled =
+                    binding.email.text.isNotBlank() && binding.password.text.isNotBlank()
             }
 
             override fun afterTextChanged(s: Editable?) {
-                binding.loginBtn.isEnabled =
-                    binding.email.text.isNotBlank() && binding.password.text.isNotBlank()
+
             }
         })
 

@@ -1,20 +1,24 @@
-package ru.sicampus.bootcamp2025.ui.vlist
+package ru.sicampus.bootcamp2025.ui.volunteers.free
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.CreationExtras
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.sicampus.bootcamp2025.data.volunteers.FreeVolunteerNetworkDataSource
 import ru.sicampus.bootcamp2025.data.volunteers.FreeVolunteerRepoImpl
-import ru.sicampus.bootcamp2025.domain.volunteers.GetFreeVolunteersUseCase
-import ru.sicampus.bootcamp2025.domain.UserEntity
+import ru.sicampus.bootcamp2025.domain.volunteers.free.GetFreeVolunteersUseCase
+import ru.sicampus.bootcamp2025.domain.entities.UserEntity
 
 
 class FreeVolunteersListViewModel(
-    private val getFreeVolunteersUseCase: GetFreeVolunteersUseCase
-) : ViewModel() {
+    private val getFreeVolunteersUseCase: GetFreeVolunteersUseCase,
+    application: Application
+) : AndroidViewModel(application) {
     private val _state = MutableStateFlow<State>(State.Loading)
     val state = _state.asStateFlow()
 
@@ -34,8 +38,10 @@ class FreeVolunteersListViewModel(
                     onSuccess = {
                         data -> State.Show(data)
                     },
-                    onFailure = {
-                        error -> State.Error("Error")
+                    onFailure = {error ->
+                        println(error.message)
+                        State.Error("Error ${error.message}")
+
                     }
             )
             )
@@ -51,17 +57,18 @@ class FreeVolunteersListViewModel(
             val text: String
         ):State
     }
-    companion object{
+    companion object {
+        @Suppress("UNCHECKED_CAST")
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-            @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return FreeVolunteersListViewModel(
-                    getFreeVolunteersUseCase = GetFreeVolunteersUseCase(
-                        repo = FreeVolunteerRepoImpl(
-                            freeVolunteerNetworkDataSource = FreeVolunteerNetworkDataSource()
-                        )
-                    )
-                ) as T
+            override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+                val freeVolunteerRepoImpl = FreeVolunteerRepoImpl(
+                    freeVolunteerNetworkDataSource = FreeVolunteerNetworkDataSource(
+                        context = extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as Application)
+                )
+
+                val freeVolunteersUseCase = GetFreeVolunteersUseCase(freeVolunteerRepoImpl)
+
+                return FreeVolunteersListViewModel(freeVolunteersUseCase, extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as Application) as T
             }
         }
     }

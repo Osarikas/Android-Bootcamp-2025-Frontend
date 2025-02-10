@@ -1,4 +1,4 @@
-package ru.sicampus.bootcamp2025.domain
+package ru.sicampus.bootcamp2025.domain.entities
 import java.util.Date
 
 data class UserEntity (

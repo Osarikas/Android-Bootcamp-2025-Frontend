@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:context=".ui.MainPageFragment">
+    tools:context=".ui.ogranizations.list.OrganizationListFragment">
 
     <LinearLayout
         android:id="@+id/header"
@@ -42,7 +42,8 @@
                 android:clickable="false"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/map_btn"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                tools:ignore="VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/activeVolunteers"
@@ -54,7 +55,8 @@
                 android:clickable="true"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/list_btn"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                tools:ignore="VisualLintButtonSize" />
         </LinearLayout>
 
         <android.widget.SearchView
@@ -86,7 +88,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/volunteers" />
+            app:srcCompat="@drawable/volunteers"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <ImageButton
             android:id="@+id/menuHome"
@@ -109,12 +112,57 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        tools:listitem="@layout/item_organization" />
+        tools:listitem="@layout/item_organization"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/error"
+        android:layout_width="258dp"
+        android:layout_height="108dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259">
+
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="Error" />
+
+        <Button
+            android:id="@+id/refreshBtn"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:text="@string/refresh" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="96dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,19 +12,12 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.receiveAsFlow
-import ru.sicampus.bootcamp2025.data.UserDTO
+import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import ru.sicampus.bootcamp2025.data.UserDataStoreManager
-import ru.sicampus.bootcamp2025.data.profile.ProfileRepoImpl
 import ru.sicampus.bootcamp2025.data.register.RegisterNetworkDataSource
 import ru.sicampus.bootcamp2025.data.register.RegisterRepoImpl
-import ru.sicampus.bootcamp2025.data.register.UserRegisterDTO
-import ru.sicampus.bootcamp2025.domain.UserEntity
-import ru.sicampus.bootcamp2025.domain.profile.ProfileRepo
 import ru.sicampus.bootcamp2025.domain.register.RegisterUseCase
-import ru.sicampus.bootcamp2025.domain.register.UserRegisterEntity
-import ru.sicampus.bootcamp2025.ui.vlist.FreeVolunteersListViewModel
-import kotlin.reflect.KClass
+import ru.sicampus.bootcamp2025.domain.entities.UserRegisterEntity
 
 @Suppress("UNCHECKED_CAST")
 class RegisterViewModel(private val registerUseCase: RegisterUseCase, application: Application) : AndroidViewModel(application) {
@@ -32,8 +25,6 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase, applicatio
     private val _state = MutableStateFlow<State>(getStateShow())
     val state = _state.asStateFlow()
     private val _userData = MutableStateFlow(UserRegisterEntity())
-    val userData = _userData.asStateFlow()
-    private var _password: String? = null
     private val _user = MutableLiveData<UserDTO?>()
     val user: LiveData<UserDTO?> get() = _user
     private val userDataStoreManager = UserDataStoreManager(application)
@@ -63,27 +54,9 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase, applicatio
     init {
         _userData.value = UserRegisterEntity()
     }
-
-    private suspend fun updateState(){
-        _state.emit(
-            getStateShow()
-        )
-        //registerUseCase.invoke(userData.value)
-    }
     private fun getStateShow() : State.Show{
         return State.Show(
             errorText = "Error"
-        )
-    }
-    fun getUserRegisterDTO(): UserRegisterDTO? {
-        val user = _userData.value
-        return UserRegisterDTO(
-            email = user.email.toString(),
-            name = user.name.toString(),
-            password = _password.toString(),
-            phoneNumber = user.phoneNumber,
-            telegramUsername = user.telegramUsername,
-            about = user.about,
         )
     }
 

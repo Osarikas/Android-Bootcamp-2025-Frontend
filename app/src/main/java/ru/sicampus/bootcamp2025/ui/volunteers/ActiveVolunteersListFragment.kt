@@ -1,4 +1,4 @@
-package ru.sicampus.bootcamp2025.ui.vlist
+package ru.sicampus.bootcamp2025.ui.volunteers
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
