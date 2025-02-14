@@ -13,5 +13,6 @@
         android:fontFamily="@font/montserrat_extrabold"
         android:text="@string/coming_soon"
         android:textAlignment="center"
+        android:textColor="@color/textPrimary"
         android:textSize="34sp" />
 </FrameLayout>

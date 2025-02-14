@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:backgroundTint="@color/gray"
+            android:backgroundTint="@color/textPrimary"
             android:text="@string/refresh" />
 
     </LinearLayout>
@@ -116,7 +116,7 @@
                 android:clickable="false"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/free_btn"
-                android:textColor="@color/black" />
+                android:textColor="@color/backgroundPrimary" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/activeVolunteers"
@@ -128,7 +128,7 @@
                 android:clickable="true"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/active_btn"
-                android:textColor="@color/black" />
+                android:textColor="@color/backgroundPrimary" />
         </LinearLayout>
 
         <android.widget.SearchView
@@ -177,7 +177,7 @@
             android:layout_height="66dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/backgroundSecondary"
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/profile" />
     </LinearLayout>

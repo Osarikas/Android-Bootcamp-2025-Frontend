@@ -20,9 +20,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by viewModels<LoginViewModel> {
-        LoginViewModel.Factory(LoginNetworkDataSource(), UserDataStoreManager(requireContext()))
-    }
+    private val viewModel by viewModels<LoginViewModel> { LoginViewModel.Factory }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentLoginBinding.bind(view)
@@ -37,6 +35,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 Toast.makeText(requireContext(), "Введите email и пароль", Toast.LENGTH_SHORT).show()
             }
         }
+
 
         binding.email.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -70,18 +69,24 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             viewModel.state.collect { state ->
                 when (state) {
                     is LoginViewModel.LoginState.Loading -> {
-                        binding.loginBtn.isEnabled = false
-                        binding.progress.visibility = View.VISIBLE
+                        _binding?.let {
+                            it.loginBtn.isEnabled = false
+                        }
+
                     }
                     is LoginViewModel.LoginState.Success -> {
-                        binding.progress.visibility = View.GONE
-                        findNavController().navigate(R.id.action_loginFragment_to_mainPageFragment)
+                        _binding?.let {
+                            findNavController().navigate(R.id.action_loginFragment_to_mainPageFragment)
+                        }
+
                     }
                     is LoginViewModel.LoginState.Error -> {
-                        binding.progress.visibility = View.GONE
-                        binding.loginBtn.isEnabled = true
-                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
-                        println(state.message)
+                        _binding?.let {
+                            it.loginBtn.isEnabled = true
+                            Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                            println(state.message)
+                        }
+
                     }
                     else -> Unit
                 }

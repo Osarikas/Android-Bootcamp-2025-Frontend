@@ -40,7 +40,7 @@ class FreeVolunteersListViewModel(
                     },
                     onFailure = {error ->
                         println(error.message)
-                        State.Error("Error ${error.message}")
+                        State.Error(error.message.toString())
 
                     }
             )

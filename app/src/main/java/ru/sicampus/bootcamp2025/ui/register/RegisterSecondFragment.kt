@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -22,7 +21,6 @@ class RegisterSecondFragment : Fragment(R.layout.fragment_register_second) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentRegisterSecondBinding.bind(view)
 
-        // TextWatcher для включения кнопки регистрации
         val textWatcher = object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 binding.registerBtn.isEnabled =
@@ -54,12 +52,10 @@ class RegisterSecondFragment : Fragment(R.layout.fragment_register_second) {
 
         viewModel.user.observe(viewLifecycleOwner) { user ->
             if (user != null) {
-                Toast.makeText(requireContext(), "Добро пожаловать, ${user.name}", Toast.LENGTH_SHORT).show()
                 try {
                     findNavController().navigate(R.id.action_registerSecondFragment_to_mainPageFragment)
-                } catch (e: Exception) {
-                    println(e.message)
-                    Toast.makeText(requireContext(), "Navigation error: ${e.message}", Toast.LENGTH_SHORT).show()
+                } catch (_: Exception) {
+                    binding.errorText.text = getString(R.string.error)
                 }
             }
         }
@@ -71,11 +67,9 @@ class RegisterSecondFragment : Fragment(R.layout.fragment_register_second) {
                 binding.tg.isEnabled = enabled
                 binding.about.isEnabled = enabled
 
-                if (state is RegisterViewModel.State.Show && state.errorText != null) {
-                    binding.errorText.visibility = View.VISIBLE
+                if(state is RegisterViewModel.State.Show){
+                    binding.errorText.visibility = if(state.errorText != null) View.VISIBLE else View.GONE
                     binding.errorText.text = state.errorText
-                } else {
-                    binding.errorText.visibility = View.GONE
                 }
             }
         }

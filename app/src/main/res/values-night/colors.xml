@@ -1,0 +1,21 @@
+<resources>
+    <color name="white">#FFFFFF</color>
+
+    <color name="backgroundPrimary">#000000</color>
+    <color name="backgroundSecondary">#3A3A3A</color>
+    <color name="bg">#1C1B22</color>
+    <color name="textPrimary">#D1D1D1</color>
+    <color name="input">#3A3745</color>
+
+    <color name="arrowBack">#CACACA</color>
+
+    <color name="green">#2BAF81</color>
+
+    <color name="buttonRegister">#703189</color>
+    <color name="buttonLoginBg">#33333D</color>
+    <color name="primary_button_login_text">#CFA8FF</color>
+
+    <color name="color1">#5C6AC4</color>
+    <color name="color2">#C86BD1</color>
+    <color name="color3">#F4A261</color>
+</resources>

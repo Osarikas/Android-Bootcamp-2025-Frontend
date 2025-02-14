@@ -9,6 +9,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.databinding.FragmentMainPageBinding
+
 import ru.sicampus.bootcamp2025.util.collectWithLifecycle
 
 class OrganizationListFragment : Fragment(R.layout.fragment_main_page) {

@@ -1,7 +1,6 @@
 package ru.sicampus.bootcamp2025.ui.register
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -29,8 +28,6 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase, applicatio
     val user: LiveData<UserDTO?> get() = _user
     private val userDataStoreManager = UserDataStoreManager(application)
 
-
-
     fun clickNext(name: String, email: String, password: String){
         _userData.value = _userData.value.copy(
             name = name,
@@ -56,7 +53,7 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase, applicatio
     }
     private fun getStateShow() : State.Show{
         return State.Show(
-            errorText = "Error"
+            errorText = null
         )
     }
 
@@ -70,13 +67,12 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase, applicatio
         viewModelScope.launch {
             registerUseCase.invoke(_userData.value).fold(
                 onSuccess = { userDto ->
+                    _state.emit(State.Loading)
                     _user.value = userDto
-                    userDataStoreManager.saveCredentials(_userData.value.email.toString(), _userData.value.password.toString())
-                    _state.emit(State.Show("Success"))
+                    userDataStoreManager.saveCredentials(userDto.email.toString(), _userData.value.password.toString())
                 },
                 onFailure = { error ->
-                    Log.e("Register", "Ошибка регистрации: ${error.message}")
-                    _state.emit(State.Show(error.toString()))
+                    _state.emit(State.Show(error.message))
                 }
             )
         }
@@ -87,9 +83,7 @@ class RegisterViewModel(private val registerUseCase: RegisterUseCase, applicatio
                 val registerRepoImpl = RegisterRepoImpl(
                     registerNetworkDataSource = RegisterNetworkDataSource()
                 )
-
                 val registerUseCase = RegisterUseCase(registerRepoImpl)
-
                 return RegisterViewModel(registerUseCase, extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as Application) as T
             }
         }

@@ -43,10 +43,16 @@ class FreeVolunteerNetworkDataSource(
                     basicAuth(email, password)
                 }
             }
-            if (result.status != HttpStatusCode.OK) {
-                error("Status ${result.status}")
+            if (result.status == HttpStatusCode.Forbidden) {
+                error("Недостаточно прав для доступа")
             }
-            result.body()
+            else if(result.status == HttpStatusCode.OK){
+                result.body()
+            }
+            else{
+                error(result.status.toString())
+            }
+
 
         }
 

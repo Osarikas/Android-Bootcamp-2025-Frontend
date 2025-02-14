@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/starter_img" />
+        app:srcCompat="@drawable/starter_img"
+        tools:ignore="ImageContrastCheck" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -38,7 +39,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/montserrat_extrabold"
             android:text="@string/starter_1"
-            android:textColor="@color/gray"
+            android:textColor="@color/textPrimary"
             android:textSize="24sp" />
 
         <TextView
@@ -47,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:text="@string/starter_3"
-            android:textColor="@color/gray"
+            android:textColor="@color/textPrimary"
             android:textSize="18sp" />
 
         <Button
@@ -55,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="12dp"
-            android:backgroundTint="@color/violet"
+            android:backgroundTint="@color/buttonRegister"
             android:text="@string/register_btn"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -66,12 +67,12 @@
             android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/buttonLoginBg"
             android:text="@string/login_btn"
-            android:textColor="@color/violet"
+            android:textColor="@color/primary_button_login_text"
             android:textSize="18sp"
             app:cornerRadius="12dp"
-            app:strokeColor="@color/violet"
+            app:strokeColor="@color/primary_button_login_text"
             app:strokeWidth="2dp" />
     </LinearLayout>
 

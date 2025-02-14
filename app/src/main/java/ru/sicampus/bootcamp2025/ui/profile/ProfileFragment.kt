@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.launch
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import ru.sicampus.bootcamp2025.databinding.FragmentProfileBinding
@@ -40,20 +42,36 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             }
 
         }
+        binding.logoutBtn.setOnClickListener{
+            lifecycleScope.launch{
+                viewModel.clickLogout()
+                findNavController().navigate(R.id.action_profileFragment_to_starterFragment)
+            }
+
+        }
+        binding.editBtn.setOnClickListener{
+            findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
+        }
     }
 
     private fun showProfile(user: UserDTO) {
         binding.loading.visibility = View.GONE
         with(binding) {
             fullNameText.text = user.name
-            organizationName.text = user.organizationName
+
+            organizationName.text = if(user.organizationName != null) user.organizationName else "Отсутствует"
             roleText.text = user.role
             birthDateText.text = dateConverter(user.birthDate)
             phoneText.text = user.phoneNumber
             emailText.text = user.email
             telegramText.text = user.telegramUsername
             aboutText.text = user.about
-            Picasso.get().load(user.photoUrl).into(photo)
+            if (user.photoUrl != null){
+                Picasso.get().load(user.photoUrl).into(photo)
+            }
+            else{
+                Picasso.get().load("https://www.meme-arsenal.com/memes/f8fc237a85c98534504cadb3c45f0232.jpg").into(photo)
+            }
 
         }
     }

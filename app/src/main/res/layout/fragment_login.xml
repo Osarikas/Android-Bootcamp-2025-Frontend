@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.82" />
 
     <ImageView
-        android:id="@+id/progress"
+        android:id="@+id/heart"
         android:layout_width="86dp"
         android:layout_height="71dp"
         android:contentDescription="@string/heart"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress"
+        app:layout_constraintTop_toBottomOf="@+id/heart"
         app:layout_constraintVertical_bias="0.105" />
 
     <LinearLayout
@@ -98,8 +98,8 @@
             android:inputType="textEmailAddress"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:textColor="@color/gray"
-            android:textColorHint="@color/gray"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textPrimary"
             android:textSize="16sp" />
 
         <TextView
@@ -125,8 +125,8 @@
             android:inputType="textPassword"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:textColor="@color/gray"
-            android:textColorHint="@color/gray"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textPrimary"
             android:textSize="16sp" />
 
         <Button
@@ -134,10 +134,10 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/input_rounded_corners"
-            android:backgroundTint="@color/violet"
+            android:backgroundTint="@color/buttonRegister"
             android:fontFamily="@font/montserrat_extrabold"
             android:text="@string/login_btn"
-            android:textColor="@color/white"
+            android:textColor="@color/backgroundSecondary"
             android:textSize="20sp"
             app:cornerRadius="15dp" />
     </LinearLayout>

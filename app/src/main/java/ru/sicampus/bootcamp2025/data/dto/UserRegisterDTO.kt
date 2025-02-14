@@ -8,7 +8,7 @@ data class UserRegisterDTO (
     @SerialName("email") val email: String,
     @SerialName("name") val name: String,
     @SerialName("password") val password: String,
-    @SerialName("phoneNumber") val phoneNumber: String?,
-    @SerialName("telegramUsername") val telegramUsername: String?,
-    @SerialName("about") val about: String?
+    @SerialName("phoneNumber") val phoneNumber: String,
+    @SerialName("telegramUsername") val telegramUsername: String,
+    @SerialName("about") val about: String
 )
