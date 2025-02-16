@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.view.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -46,7 +46,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
@@ -273,47 +272,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:background="@drawable/nav_round"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageButton
-            android:id="@+id/menuVolunteers"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/volunteers" />
-
-        <ImageButton
-            android:id="@+id/menuHome"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/main" />
-
-        <ImageButton
-            android:id="@+id/menuProfile"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:backgroundTint="@color/backgroundSecondary"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/profile_active" />
-    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/loading"

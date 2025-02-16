@@ -4,84 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/starterFragment">
-    <fragment
-        android:id="@+id/registerSecondFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.register.RegisterSecondFragment"
-        android:label="fragment_register_second"
-        tools:layout="@layout/fragment_register_second">
-        <action
-            android:id="@+id/action_registerSecondFragment_to_mainPageFragment"
-            app:destination="@id/mainPageFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_mainPageFragment"
-            app:destination="@id/mainPageFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/mainPageFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.ogranizations.list.OrganizationListFragment"
-        android:label="fragment_main_page"
-        tools:layout="@layout/fragment_main_page">
-        <action
-            android:id="@+id/action_mainPageFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_mainPageFragment_to_freeVolunteersListFragment"
-            app:destination="@id/freeVolunteersListFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile">
-        <action
-            android:id="@+id/action_profileFragment_to_mainPageFragment"
-            app:destination="@id/mainPageFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_freeVolunteersListFragment"
-            app:destination="@id/freeVolunteersListFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_starterFragment"
-            app:destination="@id/starterFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/freeVolunteersListFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.volunteers.free.FreeVolunteersListFragment"
-        android:label="fragment_free_volunteers_list"
-        tools:layout="@layout/fragment_free_volunteers_list">
-        <action
-            android:id="@+id/action_freeVolunteersListFragment_to_mainPageFragment"
-            app:destination="@id/mainPageFragment" />
-        <action
-            android:id="@+id/action_freeVolunteersListFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/activeVolunteersListFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.volunteers.ActiveVolunteersListFragment"
-        android:label="fragment_active_volunteers_list"
-        tools:layout="@layout/fragment_active_volunteers_list" />
-    <fragment
-        android:id="@+id/registerFirstFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.register.RegisterFirstFragment"
-        android:label="fragment_register_first"
-        tools:layout="@layout/fragment_register_first">
-        <action
-            android:id="@+id/action_registerFirstFragment_to_registerSecondFragment"
-            app:destination="@id/registerSecondFragment" />
-    </fragment>
+
+    <!-- Стартовый фрагмент -->
     <fragment
         android:id="@+id/starterFragment"
         android:name="ru.sicampus.bootcamp2025.StarterFragment"
-        android:label="fragment_starter"
+        android:label="Starter"
         tools:layout="@layout/fragment_starter">
         <action
             android:id="@+id/action_starterFragment_to_registerFirstFragment"
@@ -90,8 +18,78 @@
             android:id="@+id/action_starterFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+
+    <!-- Регистрация: Первый шаг -->
+    <fragment
+        android:id="@+id/registerFirstFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.register.RegisterFirstFragment"
+        android:label="Register First"
+        tools:layout="@layout/fragment_register_first">
+        <action
+            android:id="@+id/action_registerFirstFragment_to_registerSecondFragment"
+            app:destination="@id/registerSecondFragment" />
+    </fragment>
+
+    <!-- Регистрация: Второй шаг -->
+    <fragment
+        android:id="@+id/registerSecondFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.register.RegisterSecondFragment"
+        android:label="Register Second"
+        tools:layout="@layout/fragment_register_second">
+        <action
+            android:id="@+id/action_registerSecondFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+
+    <!-- Логин -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+
+    <!-- Главная страница -->
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.ogranizations.list.OrganizationListFragment"
+        android:label="Main Page"
+        tools:layout="@layout/fragment_main_page">
+        <action
+            android:id="@+id/action_mainPageFragment_to_organizationDetailFragment"
+            app:destination="@id/organizationDetailFragment" />
+    </fragment>
+
+    <!-- Профиль -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.profile.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+
+    <!-- Список свободных волонтеров -->
+    <fragment
+        android:id="@+id/freeVolunteersListFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.volunteers.free.FreeVolunteersListFragment"
+        android:label="Free Volunteers"
+        tools:layout="@layout/fragment_free_volunteers_list"/>
+
+    <!-- Редактирование профиля -->
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="ru.sicampus.bootcamp2025.ui.profile.EditProfileFragment"
-        android:label="EditProfileFragment" />
+        android:name="ru.sicampus.bootcamp2025.ui.profile.edit.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/organizationDetailFragment"
+        android:name="ru.sicampus.bootcamp2025.ui.ogranizations.detail.OrganizationDetailFragment"
+        android:label="fragment_organization_detail"
+        tools:layout="@layout/fragment_organization_detail" />
 </navigation>

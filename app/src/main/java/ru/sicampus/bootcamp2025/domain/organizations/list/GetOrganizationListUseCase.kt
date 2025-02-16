@@ -1,4 +1,4 @@
-package ru.sicampus.bootcamp2025.domain.organizations
+package ru.sicampus.bootcamp2025.domain.organizations.list
 
 import ru.sicampus.bootcamp2025.domain.entities.OrganizationEntity
 

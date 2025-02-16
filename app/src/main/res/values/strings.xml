@@ -53,5 +53,9 @@
     <string name="error">Ошибка</string>
     <string name="hint_organization">Название организации</string>
     <string name="hint_telegram">\@example</string>
+    <string name="save">Сохранить</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="join">Присоединиться</string>
 
 </resources>

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     kotlin("plugin.serialization")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -39,15 +40,15 @@ android {
     }
 }
 
-dependencies {
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation (libs.androidx.navigation.fragment)
-    implementation (libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.car.ui.lib)
     implementation(libs.picasso)
     implementation(libs.ktor.client.core)
@@ -56,6 +57,7 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.json)
     implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlin.parcelize.runtime)
     implementation(libs.androidx.paging.runtime.ktx)
     testImplementation(libs.junit)
     implementation(libs.kotlinx.serialization.json)

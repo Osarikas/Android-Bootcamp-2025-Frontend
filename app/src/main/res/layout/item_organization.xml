@@ -8,7 +8,8 @@
     android:layout_marginTop="7dp"
     android:layout_marginEnd="36dp"
     android:layout_marginBottom="7dp"
-    android:backgroundTint="@color/bg">
+    android:background="@drawable/view_round"
+    android:backgroundTint="@color/backgroundSecondary">
 
     <TextView
         android:id="@+id/name"
@@ -17,7 +18,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:textColor="@color/backgroundPrimary"
+        android:textColor="@color/textPrimary"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/count"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
+        android:foregroundTint="@color/buttonLoginBg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

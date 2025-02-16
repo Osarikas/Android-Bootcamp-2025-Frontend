@@ -10,8 +10,11 @@
 
     <color name="arrowBack">#333333</color>
 
+    <color name="organizationAvatarBg">#A0ADF9</color>
+    <color name="organizationAvatarImg">#FFFFFF</color>
+
     <color name="green">#33CC99</color>
-    <color name="buttonRegister">#9933CC</color>
+    <color name="violet">#9933CC</color>
 
     <color name="buttonLoginBg">#FFFFFFFF</color>
     <color name="primary_button_login_text">#9933CC</color>

@@ -14,11 +14,7 @@ import kotlinx.coroutines.launch
 import ru.sicampus.bootcamp2025.data.UserDataStoreManager
 import ru.sicampus.bootcamp2025.data.login.LoginNetworkDataSource
 import ru.sicampus.bootcamp2025.data.login.LoginRepoImpl
-import ru.sicampus.bootcamp2025.data.organizations.list.OrganizationListNetworkDataSource
-import ru.sicampus.bootcamp2025.data.organizations.list.OrganizationListRepoImpl
 import ru.sicampus.bootcamp2025.domain.login.LoginUseCase
-import ru.sicampus.bootcamp2025.domain.organizations.GetOrganizationListUseCase
-import ru.sicampus.bootcamp2025.ui.ogranizations.list.OrganizationListViewModel
 
 class LoginViewModel(
     private val useCase: LoginUseCase,

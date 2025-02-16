@@ -37,7 +37,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
 
-        binding.email.addTextChangedListener(object : TextWatcher {
+        val textWatcher = object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 binding.loginBtn.isEnabled = binding.email.text.isNotBlank() && binding.password.text.isNotBlank()
             }
@@ -47,23 +47,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
-        })
+        }
+        with(binding){
+            email.addTextChangedListener(textWatcher)
+            password.addTextChangedListener(textWatcher)
+        }
         binding.backArrow.setOnClickListener{
             findNavController().popBackStack()
         }
-        binding.password.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                binding.loginBtn.isEnabled =
-                    binding.email.text.isNotBlank() && binding.password.text.isNotBlank()
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-        })
 
         lifecycleScope.launch {
             viewModel.state.collect { state ->

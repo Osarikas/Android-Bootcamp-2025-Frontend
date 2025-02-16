@@ -1,7 +1,7 @@
 package ru.sicampus.bootcamp2025.data.organizations.list
 
 import ru.sicampus.bootcamp2025.domain.entities.OrganizationEntity
-import ru.sicampus.bootcamp2025.domain.organizations.OrganizationListRepo
+import ru.sicampus.bootcamp2025.domain.organizations.list.OrganizationListRepo
 
 class OrganizationListRepoImpl(
     private val dataSource: OrganizationListNetworkDataSource

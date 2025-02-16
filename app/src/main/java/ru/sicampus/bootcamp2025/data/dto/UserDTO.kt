@@ -8,9 +8,9 @@ import java.util.Date
 @Serializable
 data class UserDTO(
     @SerialName("id") val id: Long?,
-    @SerialName("email") val email: String,
-    @SerialName("name") val name: String,
-    @SerialName("role") val role: String,
+    @SerialName("email") val email: String?,
+    @SerialName("name") val name: String?,
+    @SerialName("role") val role: String?,
     @SerialName("birthDate") @Serializable(with = DateSerializer::class) val birthDate: Date?,
     @SerialName("phoneNumber") val phoneNumber: String?,
     @SerialName("telegramUsername") val telegramUsername: String?,

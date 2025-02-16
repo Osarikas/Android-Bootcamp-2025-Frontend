@@ -1,4 +1,6 @@
 package ru.sicampus.bootcamp2025.domain.entities
+import ru.sicampus.bootcamp2025.data.dto.UserDTO
+import ru.sicampus.bootcamp2025.data.dto.UserRegisterDTO
 import java.util.Date
 
 data class UserEntity (
@@ -12,4 +14,19 @@ data class UserEntity (
     val organizationName: String? = null,
     val about: String? = null,
     val photoUrl: String? = null
-)
+){
+    fun toDTO(): UserDTO {
+        return UserDTO(
+            id = id,
+            email = email,
+            name = name,
+            role = role,
+            birthDate = birthDate,
+            phoneNumber = phoneNumber,
+            telegramUsername = telegramUsername,
+            organizationName = organizationName,
+            about = about,
+            photoUrl = photoUrl
+        )
+    }
+}

@@ -1,4 +1,4 @@
-package ru.sicampus.bootcamp2025.ui.profile
+package ru.sicampus.bootcamp2025.ui.profile.view
 
 import android.os.Bundle
 import android.view.View
@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import ru.sicampus.bootcamp2025.R
 import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import ru.sicampus.bootcamp2025.databinding.FragmentProfileBinding
+import ru.sicampus.bootcamp2025.domain.entities.UserEntity
 import ru.sicampus.bootcamp2025.util.collectWithLifecycle
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -19,13 +20,11 @@ import java.util.Locale
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private var _binding : FragmentProfileBinding? = null
     private val binding : FragmentProfileBinding get() = _binding!!
-    private val viewModel by viewModels<ProfileViewModel>{ProfileViewModel.Factory}
+    private val viewModel by viewModels<ProfileViewModel>{ ProfileViewModel.Factory}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentProfileBinding.bind(view)
         binding.refreshBtn.setOnClickListener{ viewModel.clickRefresh() }
-        binding.menuHome.setOnClickListener{ findNavController().navigate(R.id.action_profileFragment_to_mainPageFragment) }
-        binding.menuVolunteers.setOnClickListener{ findNavController().navigate(R.id.action_profileFragment_to_freeVolunteersListFragment) }
         viewModel.state.collectWithLifecycle(this){ state ->
             binding.error.visibility = if(state is ProfileViewModel.State.Error) View.VISIBLE else View.GONE
             binding.loading.visibility = if(state is ProfileViewModel.State.Loading) View.VISIBLE else View.GONE
@@ -45,7 +44,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         binding.logoutBtn.setOnClickListener{
             lifecycleScope.launch{
                 viewModel.clickLogout()
-                findNavController().navigate(R.id.action_profileFragment_to_starterFragment)
+                findNavController().navigate(R.id.starterFragment)
             }
 
         }
@@ -54,7 +53,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
     }
 
-    private fun showProfile(user: UserDTO) {
+    private fun showProfile(user: UserEntity) {
         binding.loading.visibility = View.GONE
         with(binding) {
             fullNameText.text = user.name

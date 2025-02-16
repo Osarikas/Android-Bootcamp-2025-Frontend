@@ -12,7 +12,7 @@ import androidx.paging.cachedIn
 import kotlinx.coroutines.launch
 import ru.sicampus.bootcamp2025.data.organizations.list.OrganizationListNetworkDataSource
 import ru.sicampus.bootcamp2025.data.organizations.list.OrganizationListRepoImpl
-import ru.sicampus.bootcamp2025.domain.organizations.GetOrganizationListUseCase
+import ru.sicampus.bootcamp2025.domain.organizations.list.GetOrganizationListUseCase
 
 
 class OrganizationListViewModel(

@@ -20,8 +20,6 @@ class FreeVolunteersListFragment : Fragment(R.layout.fragment_free_volunteers_li
         val adapter = FreeVolunteersAdapter()
         binding.content.adapter = adapter
 
-        binding.menuHome.setOnClickListener{ findNavController().navigate(R.id.action_freeVolunteersListFragment_to_mainPageFragment) }
-        binding.menuProfile.setOnClickListener{ findNavController().navigate(R.id.action_freeVolunteersListFragment_to_profileFragment) }
         viewModel.state.collectWithLifecycle(this){ state ->
             binding.error.visibility = if(state is FreeVolunteersListViewModel.State.Error) View.VISIBLE else View.GONE
             binding.loading.visibility = if(state is FreeVolunteersListViewModel.State.Loading) View.VISIBLE else View.GONE

@@ -60,7 +60,7 @@
         android:paddingTop="15dp"
         android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header"
@@ -116,7 +116,7 @@
                 android:clickable="false"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/free_btn"
-                android:textColor="@color/backgroundPrimary" />
+                android:textColor="@color/textPrimary" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/activeVolunteers"
@@ -128,7 +128,7 @@
                 android:clickable="true"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/active_btn"
-                android:textColor="@color/backgroundPrimary" />
+                android:textColor="@color/textPrimary" />
         </LinearLayout>
 
         <android.widget.SearchView
@@ -141,44 +141,4 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:background="@drawable/nav_round"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageButton
-            android:id="@+id/menuVolunteers"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/volunteers_active" />
-
-        <ImageButton
-            android:id="@+id/menuHome"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/main" />
-
-        <ImageButton
-            android:id="@+id/menuProfile"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:backgroundTint="@color/backgroundSecondary"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/profile" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    android:foregroundTint="@color/buttonRegister"
-    tools:context=".ui.profile.ProfileFragment">
+    android:foregroundTint="@color/violet"
+    tools:context=".ui.profile.view.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -19,11 +19,12 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/arrowBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
+            android:contentDescription="TODO"
             android:src="@drawable/frame"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +32,11 @@
             app:tint="@color/arrowBack" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
@@ -48,24 +50,13 @@
             android:visibility="visible"
             tools:visibility="visible">
 
-            <ImageView
-                android:id="@+id/photo"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="26dp"
-                android:background="@drawable/round_shape"
-                android:clipToOutline="true"
-                android:contentDescription="@string/app_name"
-                tools:src="@tools:sample/avatars" />
-
             <LinearLayout
                 android:id="@+id/fullname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="36dp"
                 android:layout_marginEnd="36dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="18dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -90,42 +81,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/organization"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="36dp"
-                android:layout_marginEnd="36dp"
-                android:layout_marginBottom="26dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="@string/organizationName"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/editOrganization"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:autofillHints=""
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:hint="@string/hint_organization"
-                    android:inputType="text"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/birthDate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="36dp"
                 android:layout_marginEnd="36dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="18dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -156,7 +117,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="36dp"
                 android:layout_marginEnd="36dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="18dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -169,7 +130,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editProne"
+                    android:id="@+id/editPhone"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:autofillHints="phone"
@@ -186,7 +147,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="36dp"
                 android:layout_marginEnd="36dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="18dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -216,7 +177,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="36dp"
                 android:layout_marginEnd="36dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="18dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -229,7 +190,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/telegramText"
+                    android:id="@+id/editTelegram"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:autofillHints="telegram"
@@ -246,7 +207,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="36dp"
                 android:layout_marginEnd="36dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="18dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -267,53 +228,28 @@
                     android:gravity="clip_horizontal"
                     android:hint="@string/hint_about"
                     android:inputType="text|textMultiLine"
-                    android:textSize="16sp"
-                    android:textColor="@color/textPrimary" />
+                    android:textColor="@color/textPrimary"
+                    android:textSize="16sp" />
+
             </LinearLayout>
 
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/round_shape"
+                android:backgroundTint="@color/violet"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:cornerRadius="30dp" />
+
         </LinearLayout>
+
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:background="@drawable/nav_round"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageButton
-            android:id="@+id/menuVolunteers"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/heart"
-            app:srcCompat="@drawable/volunteers" />
-
-        <ImageButton
-            android:id="@+id/menuHome"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/main" />
-
-        <ImageButton
-            android:id="@+id/menuProfile"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:backgroundTint="@color/backgroundSecondary"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/profile_active" />
-    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/loading"

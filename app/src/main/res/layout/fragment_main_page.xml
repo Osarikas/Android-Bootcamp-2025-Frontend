@@ -42,7 +42,7 @@
                 android:clickable="false"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/map_btn"
-                android:textColor="@color/backgroundPrimary"
+                android:textColor="@color/textPrimary"
                 tools:ignore="VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -55,7 +55,7 @@
                 android:clickable="true"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/list_btn"
-                android:textColor="@color/backgroundPrimary"
+                android:textColor="@color/textPrimary"
                 tools:ignore="VisualLintButtonSize" />
         </LinearLayout>
 
@@ -69,54 +69,13 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:background="@drawable/nav_round"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageButton
-            android:id="@+id/menuVolunteers"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/volunteers"
-            tools:ignore="DuplicateSpeakableTextCheck" />
-
-        <ImageButton
-            android:id="@+id/menuHome"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/main_active" />
-
-        <ImageButton
-            android:id="@+id/menuProfile"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:backgroundTint="@color/backgroundSecondary"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/profile" />
-    </LinearLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/bg"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header"

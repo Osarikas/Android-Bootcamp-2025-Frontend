@@ -19,7 +19,7 @@ import ru.sicampus.bootcamp2025.data.UserDataStoreManager
 import ru.sicampus.bootcamp2025.data.dto.UserDTO
 import kotlin.io.encoding.ExperimentalEncodingApi
 
-class ProfileNetworkDataSource(context: Context) {
+class ViewProfileNetworkDataSource(context: Context) {
     private val client = HttpClient(CIO){
         install(ContentNegotiation){
             json(Json {

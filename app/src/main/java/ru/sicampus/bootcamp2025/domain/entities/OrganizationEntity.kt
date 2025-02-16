@@ -1,4 +1,10 @@
 package ru.sicampus.bootcamp2025.domain.entities
+
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+
+@Parcelize
 data class OrganizationEntity (
     val id: Long? = null,
     val name: String? = null,
@@ -6,4 +12,4 @@ data class OrganizationEntity (
     val latitude: Float? = null,
     val longitude: Float? = null,
     val peopleCount: Long? = null
-)
+): Parcelable

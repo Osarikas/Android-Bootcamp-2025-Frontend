@@ -8,27 +8,24 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.sicampus.bootcamp2025.databinding.ItemOrganizationBinding
 import ru.sicampus.bootcamp2025.domain.entities.OrganizationEntity
 
-class OrganizationListAdapter : PagingDataAdapter<OrganizationEntity, OrganizationListAdapter.ViewHolder>(DiffUtil) {
+class OrganizationListAdapter(
+    private val onItemClick: (OrganizationEntity) -> Unit
+) : PagingDataAdapter<OrganizationEntity, OrganizationListAdapter.ViewHolder>(DiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             ItemOrganizationBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        if (item == null) {
-            println("Item at position $position is null")
-        } else {
-            println("Item at position $position: $item")
+        if (item != null) {
             holder.bind(item)
         }
 
     }
-    class ViewHolder(
+    inner class ViewHolder(
         private val binding: ItemOrganizationBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
@@ -36,6 +33,9 @@ class OrganizationListAdapter : PagingDataAdapter<OrganizationEntity, Organizati
             println("item $item")
             binding.name.text = "${item.name}"
             binding.count.text = "Волонтеры: ${item.peopleCount}"
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
         }
 
     }
